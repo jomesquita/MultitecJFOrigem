@@ -96,13 +96,13 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(297, Short.MAX_VALUE)
+                .addContainerGap(259, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(38, 38, 38)
+                .addGap(52, 52, 52)
                 .addComponent(jButton2)
-                .addGap(87, 87, 87)
+                .addGap(50, 50, 50)
                 .addComponent(jButton3)
-                .addContainerGap())
+                .addGap(71, 71, 71))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
