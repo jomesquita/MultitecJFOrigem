@@ -88,9 +88,9 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
+                .addGap(136, 136, 136)
                 .addComponent(jButton2)
-                .addGap(40, 40, 40)
+                .addGap(54, 54, 54)
                 .addComponent(jButton3)
                 .addGap(46, 46, 46)
                 .addComponent(jButton4)
