@@ -122,6 +122,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/equipamento-de-carga_318-28594.jpg"))); // NOI18N
         jMenuItem1.setText("Equipamentos");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +131,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/ICON_Professor.png"))); // NOI18N
         jMenuItem2.setText("Professor");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +140,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/1492790841-18time_84210.png"))); // NOI18N
         jMenuItem3.setText("Horário");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +153,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Atualizar");
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/equipamento-de-carga_318-28594.jpg"))); // NOI18N
         jMenuItem4.setText("Equipamentos");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +162,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem4);
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/ICON_Professor.png"))); // NOI18N
         jMenuItem5.setText("Professor");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,6 +171,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/1492790841-18time_84210.png"))); // NOI18N
         jMenuItem7.setText("Horário");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +184,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu5.setText("Consultar");
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/equipamento-de-carga_318-28594.jpg"))); // NOI18N
         jMenuItem8.setText("Equipamentos");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,6 +193,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem8);
 
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/ICON_Professor.png"))); // NOI18N
         jMenuItem9.setText("Professor");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +202,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem9);
 
+        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/1492790841-18time_84210.png"))); // NOI18N
         jMenuItem10.setText("Horário");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +215,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu7.setText("Excluir");
 
+        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/equipamento-de-carga_318-28594.jpg"))); // NOI18N
         jMenuItem11.setText("Equipamentos");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +224,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem11);
 
+        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/ICON_Professor.png"))); // NOI18N
         jMenuItem12.setText("Professor");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +233,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem12);
 
+        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/1492790841-18time_84210.png"))); // NOI18N
         jMenuItem13.setText("Horário");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
