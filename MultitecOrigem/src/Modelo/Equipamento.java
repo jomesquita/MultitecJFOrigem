@@ -11,50 +11,33 @@ package Modelo;
  */
 public class Equipamento {
   
-  private String nome;
-  private String marca;
-  private String modelo;
-  private String conexão;
-  private String codigo;
-  
-private String getcodigo(){
-    return codigo;
-}
-public void setcodigo(){
-    this.codigo = codigo;
-}
-  
-
+  private String Nome;
+  private String Marca;
+  private String Modelo;
+ 
     public String getNome() {
-        return nome;
+        return Nome;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.Nome = Nome;
     }
 
     public String getMarca() {
-        return marca;
+        return Marca;
     }
 
     public void setMarca(String marca) {
-        this.marca = marca;
+        this.Marca = Marca;
     }
 
     public String getModelo() {
-        return modelo;
+        return Modelo;
     }
 
     public void setModelo(String modelo) {
-        this.modelo = modelo;
+        this.Modelo = Modelo;
     }
 
-    public String getConexão() {
-        return conexão;
-    }
-
-    public void setConexão(String conexão) {
-        this.conexão = conexão;
-    }
   
 }

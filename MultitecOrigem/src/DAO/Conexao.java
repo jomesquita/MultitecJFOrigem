@@ -1,4 +1,6 @@
-package DAO; 
+
+package DAO;
+
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -11,7 +13,7 @@ public class Conexao {
             con = DriverManager.getConnection(url,"root", "");
                    
         } catch (ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro na Conexão com o Banco","multitec", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog(null, "Erro na Conexão com o Banco","Multitec", JOptionPane.ERROR_MESSAGE );
         }
         return con;
     }

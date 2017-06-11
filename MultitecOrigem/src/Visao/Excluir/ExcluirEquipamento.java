@@ -5,6 +5,12 @@
  */
 package Visao.Excluir;
 
+import DAO.Conexao;
+import DAO.EquipamentoDAO;
+import Modelo.Equipamento;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joelânio
@@ -36,9 +42,9 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtNome = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jtCodigo = new javax.swing.JTextField();
 
         jLabel1.setText("Pesquisa por nome:");
 
@@ -121,11 +127,11 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -134,9 +140,9 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -168,6 +174,28 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        String nome = jtNome.getText();
+        String codigo = jtCodigo.getText();
+        Connection con = Conexao.AbrirConexao();
+        EquipamentoDAO sql = new EquipamentoDAO(con);
+        Equipamento E = new Equipamento();
+        if (nome.equals("")){
+            JOptionPane.showMessageDialog(null, "Nenhum campo foi preenchido!", "confort", JOptionPane.QUESTION_MESSAGE);
+            
+        }else{
+          int b = JOptionPane.showConfirmDialog(null, "Deseja realmente Excluir?" + "\n (" + nome + " )" , "confort", JOptionPane.YES_NO_OPTION,
+                  JOptionPane.QUESTION_MESSAGE);
+          
+          if (b ==0){
+              E.setNome(nome);
+              sql.Excluir_Equipamento(E);
+              Conexao.FecharConexao(con);
+              dispose();
+          }
+            
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -216,7 +244,7 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jtCodigo;
+    private javax.swing.JTextField jtNome;
     // End of variables declaration//GEN-END:variables
 }

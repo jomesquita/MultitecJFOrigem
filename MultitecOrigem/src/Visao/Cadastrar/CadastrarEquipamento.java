@@ -239,14 +239,14 @@ public class CadastrarEquipamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Não pode deixar os campos vazios ","Multitec", JOptionPane.WARNING_MESSAGE);
         }else{
             Connection con = Conexao.AbrirConexao();
-            AdministradorDAO sql = new AdministradorDAO(con);
+            EquipamentoDAO sql = new EquipamentoDAO(con);
            Equipamento E =new Equipamento();
             
            E.setNome(nome);  
            E.setMarca(Marca);
            E.setModelo(Modelo);
           
-       //  sql.Inserir_Equipamentos(E);
+         sql.cadastrarEquipamento(E);
          Conexao.FecharConexao(con);
          jTNome.setText("");
          jTMarca.setText("");
