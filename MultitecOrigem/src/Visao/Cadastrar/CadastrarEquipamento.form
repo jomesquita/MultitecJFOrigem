@@ -127,9 +127,9 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTModelo" min="-2" pref="268" max="-2" attributes="0"/>
-                  <Component id="jTMarca" min="-2" pref="267" max="-2" attributes="0"/>
-                  <Component id="jTNome" min="-2" pref="267" max="-2" attributes="0"/>
+                  <Component id="Modelo" min="-2" pref="268" max="-2" attributes="0"/>
+                  <Component id="Marca" min="-2" pref="267" max="-2" attributes="0"/>
+                  <Component id="Nome" min="-2" pref="267" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -142,17 +142,17 @@
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTNome" min="-2" max="-2" attributes="0"/>
+                  <Component id="Nome" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTMarca" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Marca" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTModelo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Modelo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="226" max="32767" attributes="0"/>
               <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
@@ -272,13 +272,13 @@
         <Property name="text" type="java.lang.String" value="Modelo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTNome">
+    <Component class="javax.swing.JTextField" name="Nome">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTMarca">
+    <Component class="javax.swing.JTextField" name="Marca">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTModelo">
+    <Component class="javax.swing.JTextField" name="Modelo">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTModeloActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModeloActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -50,9 +50,9 @@ public class CadastrarEquipamento extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTNome = new javax.swing.JTextField();
-        jTMarca = new javax.swing.JTextField();
-        jTModelo = new javax.swing.JTextField();
+        Nome = new javax.swing.JTextField();
+        Marca = new javax.swing.JTextField();
+        Modelo = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 0));
 
@@ -179,9 +179,9 @@ public class CadastrarEquipamento extends javax.swing.JFrame {
 
         jLabel6.setText("Modelo:");
 
-        jTModelo.addActionListener(new java.awt.event.ActionListener() {
+        Modelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTModeloActionPerformed(evt);
+                ModeloActionPerformed(evt);
             }
         });
 
@@ -199,9 +199,9 @@ public class CadastrarEquipamento extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTNome, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Marca, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -211,15 +211,15 @@ public class CadastrarEquipamento extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jTNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -229,34 +229,32 @@ public class CadastrarEquipamento extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-         String nome = jTNome.getText();
-         String Marca = jTMarca.getText();
-         String Modelo= jTModelo.getText();
-         
-       
+   
+    String nome = Nome.getText();
+    String marca = Marca.getText();
+    String modelo = Modelo.getText();
         
-        if(nome.equals("")|| Marca.equals("")|| Modelo.equals("")){
-            JOptionPane.showMessageDialog(null,"Não pode deixar os campos vazios ","Multitec", JOptionPane.WARNING_MESSAGE);
+        if(nome.equals("") || marca.equals("") || modelo.equals("")){
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!", "Multitec", JOptionPane.WARNING_MESSAGE);
         }else{
             Connection con = Conexao.AbrirConexao();
             EquipamentoDAO sql = new EquipamentoDAO(con);
-           Equipamento E =new Equipamento();
+            Equipamento q = new Equipamento();
             
-           E.setNome(nome);  
-           E.setMarca(Marca);
-           E.setModelo(Modelo);
-          
-         sql.cadastrarEquipamento(E);
-         Conexao.FecharConexao(con);
-         jTNome.setText("");
-         jTMarca.setText("");
-         jTModelo.setText("");
-         
-         JOptionPane.showMessageDialog(null,"cadastro realizado");
-         dispose();
-           
-     }
-       
+            q.setNome(nome);
+            q.setMarca(marca);
+            q.setModelo(modelo);
+            
+            sql.Inserir_Equipamento(q);
+            Conexao.FecharConexao(con);
+            
+            Nome.setText("");
+            Marca.setText("");
+            Modelo.setText("");
+            
+            JOptionPane.showMessageDialog(null, "Cadastro Realizado ","Multitec", JOptionPane.INFORMATION_MESSAGE );
+            dispose();
+        }    
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -264,9 +262,9 @@ public class CadastrarEquipamento extends javax.swing.JFrame {
           dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jTModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTModeloActionPerformed
+    private void ModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModeloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTModeloActionPerformed
+    }//GEN-LAST:event_ModeloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,6 +303,9 @@ public class CadastrarEquipamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Marca;
+    private javax.swing.JTextField Modelo;
+    private javax.swing.JTextField Nome;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -320,8 +321,5 @@ public class CadastrarEquipamento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTMarca;
-    private javax.swing.JTextField jTModelo;
-    private javax.swing.JTextField jTNome;
     // End of variables declaration//GEN-END:variables
 }

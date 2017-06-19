@@ -10,11 +10,20 @@ package Modelo;
  * @author Joelânio
  */
 public class Equipamento {
-  
+  private int Cod;
   private String Nome;
   private String Marca;
   private String Modelo;
- 
+  
+    public int getCod() {
+        return Cod;
+    }
+
+   
+    public void setCod(int Cod) {
+        this.Cod = Cod;
+    }
+
     public String getNome() {
         return Nome;
     }
@@ -39,5 +48,7 @@ public class Equipamento {
         this.Modelo = Modelo;
     }
 
+  
+ 
   
 }

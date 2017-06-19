@@ -23,7 +23,7 @@ public class EquipamentoDAO extends ExecuteSQL{
         super(con);
     }
     
- public String cadastrarEquipamento(Equipamento E){
+ public String Inserir_Equipamento(Equipamento E){
         String sql = "INSERT INTO equipamento VALUES (0,?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -198,17 +198,7 @@ public class EquipamentoDAO extends ExecuteSQL{
     
     }
 
-    public void Cadastrar_Equipamento(Equipamento E) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void CadastrarEquipamento(Equipamento E) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void Inserir_Equipamento(Equipamento E) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 }
 
 
