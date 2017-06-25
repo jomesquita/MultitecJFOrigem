@@ -5,6 +5,12 @@
  */
 package Visao.Alterar;
 
+import DAO.Conexao;
+import DAO.EquipamentoDAO;
+import Modelo.Equipamento;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joelânio
@@ -34,10 +40,17 @@ public class AlterarEquipamento extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jTF_pesquisar_cod_equipamento = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTF_alterar_nome_equipamento = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTF_alterar_marca_equipamento = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTF_alterar_modelo_equipamento = new javax.swing.JTextField();
+        jTF_alterar_cod_equipamento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,7 +77,12 @@ public class AlterarEquipamento extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 0, 0));
 
-        jButton3.setText("Limpar");
+        jButton3.setText("Excluir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Cancelar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -85,11 +103,11 @@ public class AlterarEquipamento extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(166, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(68, 68, 68)
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(54, 54, 54)
+                .addGap(72, 72, 72)
+                .addComponent(jButton2)
+                .addGap(153, 153, 153)
                 .addComponent(jButton4)
                 .addGap(99, 99, 99))
         );
@@ -106,36 +124,58 @@ public class AlterarEquipamento extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel1.setText("Pesquisa por nome:");
+        jLabel6.setText("Digite o Código");
 
-        jLabel4.setText("Pesquisa por código:");
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(jTF_pesquisar_cod_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6)
+                    .addComponent(jTF_pesquisar_cod_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
+
+        jLabel1.setText("Código");
+
+        jLabel2.setText("Nome");
+
+        jLabel4.setText("Marca");
+
+        jLabel5.setText("Modelo");
+
+        jTF_alterar_modelo_equipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTF_alterar_modelo_equipamentoActionPerformed(evt);
+            }
+        });
+
+        jTF_alterar_cod_equipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTF_alterar_cod_equipamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,6 +184,26 @@ public class AlterarEquipamento extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_alterar_cod_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTF_alterar_modelo_equipamento))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(24, 24, 24)
+                        .addComponent(jTF_alterar_nome_equipamento))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(26, 26, 26)
+                        .addComponent(jTF_alterar_marca_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +211,30 @@ public class AlterarEquipamento extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTF_alterar_cod_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel2))
+                    .addComponent(jTF_alterar_nome_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel4))
+                    .addComponent(jTF_alterar_marca_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTF_alterar_modelo_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -165,7 +248,102 @@ public class AlterarEquipamento extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String codigo = jTF_alterar_cod_equipamento.getText();
+        String nome = jTF_alterar_nome_equipamento.getText();
+        String marca = jTF_alterar_marca_equipamento.getText();
+        String modelo = jTF_alterar_modelo_equipamento.getText();
+         if(nome.equals("") || marca.equals("") || modelo.equals("")){
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar vazio!",
+                    "Multitec", JOptionPane.WARNING_MESSAGE);
+        }else{
+            Connection con = Conexao.AbrirConexao();
+            EquipamentoDAO sql = new EquipamentoDAO(con);
+            int cod = Integer.parseInt(codigo);
+            Equipamento q = new Equipamento();
+            
+            q.setCod(cod);
+            q.setNome(nome);
+            q.setMarca(marca);
+            q.setModelo(modelo);
+            
+            sql.Alterar_Equipamento(q);
+            Conexao.FecharConexao(con);
+            
+            jTF_alterar_cod_equipamento.setText("");
+            jTF_alterar_nome_equipamento.setText("");
+            jTF_alterar_marca_equipamento.setText("");
+            jTF_alterar_modelo_equipamento.setText("");
+            
+            
+            
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String codigo = jTF_pesquisar_cod_equipamento.getText();
+        Connection con = Conexao.AbrirConexao();
+        EquipamentoDAO sql = new EquipamentoDAO(con);
+
+        int cod = Integer.parseInt(codigo);
+
+        Equipamento q = sql.Consulta_Equipamento(cod);
+        if( q.getCod() != cod){
+            Conexao.FecharConexao(con);
+        }
+        if(codigo.equals("")){
+            JOptionPane.showMessageDialog(null, "Digite um Código para Atualizar",
+                "Multitec", JOptionPane.WARNING_MESSAGE);
+        }
+
+        jTF_alterar_cod_equipamento.setText("");
+        jTF_alterar_nome_equipamento.setText("");
+        jTF_alterar_marca_equipamento.setText("");
+        jTF_alterar_modelo_equipamento.setText("");
+
+        //InserirDados(cod);
+        jTF_pesquisar_cod_equipamento.setText(codigo);
+
+        jTF_alterar_cod_equipamento.setText(""+ q.getCod());
+        jTF_alterar_nome_equipamento.setText(q.getNome());
+        jTF_alterar_marca_equipamento.setText(q.getMarca());
+        jTF_alterar_modelo_equipamento.setText(q.getModelo());
+
+        Conexao.FecharConexao(con);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         
+        String codigo =jTF_pesquisar_cod_equipamento .getText();
+        
+        Connection con = Conexao.AbrirConexao();
+        EquipamentoDAO sql = new EquipamentoDAO(con);
+        Equipamento q = new Equipamento();
+        
+        int confirma = JOptionPane.showConfirmDialog(null, "Deseja realmente Excluir"
+        + "\n (" + codigo + ")", "Video Locadora",
+        JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(confirma == 0){
+            int cod = Integer.parseInt(codigo);
+            q.setCod(cod);
+            sql.Excluir_Equipamento(q);
+            Conexao.FecharConexao(con);
+            
+            
+        }
+        dispose();
+           
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTF_alterar_modelo_equipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_alterar_modelo_equipamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_alterar_modelo_equipamentoActionPerformed
+
+    private void jTF_alterar_cod_equipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_alterar_cod_equipamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_alterar_cod_equipamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,16 +381,23 @@ public class AlterarEquipamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTF_alterar_cod_equipamento;
+    private javax.swing.JTextField jTF_alterar_marca_equipamento;
+    private javax.swing.JTextField jTF_alterar_modelo_equipamento;
+    private javax.swing.JTextField jTF_alterar_nome_equipamento;
+    private javax.swing.JTextField jTF_pesquisar_cod_equipamento;
     // End of variables declaration//GEN-END:variables
 }

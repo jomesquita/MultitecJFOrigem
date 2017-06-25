@@ -9,6 +9,8 @@ import DAO.Conexao;
 import DAO.EquipamentoDAO;
 import Modelo.Equipamento;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author Joelânio
  */
 public class ExcluirEquipamento extends javax.swing.JFrame {
+    private Object jtCodigo;
 
     /**
      * Creates new form ExcluirEquipamento
@@ -39,12 +42,9 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jtNome = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jtCodigo = new javax.swing.JTextField();
+        jCB_cod = new javax.swing.JTextField();
 
         jLabel1.setText("Pesquisa por nome:");
 
@@ -60,7 +60,7 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 112, Short.MAX_VALUE)
                 .addComponent(jLabel3))
         );
         jPanel3Layout.setVerticalGroup(
@@ -82,10 +82,10 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Excluir");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -94,13 +94,13 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jButton2)
-                .addGap(54, 54, 54)
+                .addGap(135, 135, 135)
+                .addComponent(jButton1)
+                .addGap(71, 71, 71)
                 .addComponent(jButton3)
                 .addGap(46, 46, 46)
                 .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,42 +109,28 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
-                    .addComponent(jButton2))
+                    .addComponent(jButton1))
                 .addGap(38, 38, 38))
         );
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel5.setText("Pesquisa por nome:");
-
-        jLabel4.setText("Pesquisa por código:");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+            .addGap(0, 560, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addGap(0, 54, Short.MAX_VALUE)
         );
+
+        jCB_cod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB_codActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,6 +139,10 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jCB_cod, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +150,9 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCB_cod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -172,31 +164,34 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
           dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String codigo = jCB_cod.getText();
         
-        String nome = jtNome.getText();
-        String codigo = jtCodigo.getText();
         Connection con = Conexao.AbrirConexao();
         EquipamentoDAO sql = new EquipamentoDAO(con);
-        Equipamento E = new Equipamento();
-        if (nome.equals("")){
-            JOptionPane.showMessageDialog(null, "Nenhum campo foi preenchido!", "confort", JOptionPane.QUESTION_MESSAGE);
+        Equipamento q = new Equipamento();
+        
+        int confirma = JOptionPane.showConfirmDialog(null, "Deseja realmente Excluir"
+        + "\n (" + codigo + ")", "Multitec",
+        JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(confirma == 0){
+            int cod = Integer.parseInt(codigo);
+            q.setCod(cod);
+            sql.Excluir_Equipamento(q);
+            Conexao.FecharConexao(con);
             
-        }else{
-          int b = JOptionPane.showConfirmDialog(null, "Deseja realmente Excluir?" + "\n (" + nome + " )" , "confort", JOptionPane.YES_NO_OPTION,
-                  JOptionPane.QUESTION_MESSAGE);
-          
-          if (b ==0){
-              E.setNome(nome);
-              sql.Excluir_Equipamento(E);
-              Conexao.FecharConexao(con);
-              dispose();
-          }
             
         }
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+        dispose();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCB_codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_codActionPerformed
+        // TODO add your handling code here: 
+
+    }//GEN-LAST:event_jCB_codActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,17 +229,14 @@ public class ExcluirEquipamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JTextField jCB_cod;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jtCodigo;
-    private javax.swing.JTextField jtNome;
     // End of variables declaration//GEN-END:variables
 }

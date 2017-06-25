@@ -44,7 +44,6 @@ public class Login extends javax.swing.JFrame {
         jfSenha = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         sair = new javax.swing.JButton();
-        jProgressBar = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 51, 51));
@@ -118,15 +117,12 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jfSenha)
                     .addComponent(tfLogin))
                 .addContainerGap(43, Short.MAX_VALUE))
-            .addComponent(jProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,41 +180,21 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Connection con = Conexao.AbrirConexao();
-        AdministradorDAO sql = new AdministradorDAO(con);
-        String login = tfLogin.getText();
-        String senha = jfSenha.getText();
-        Menu menu = new Menu();
-        
-        if(login.equalsIgnoreCase("") || senha.equalsIgnoreCase("") ){
-      JOptionPane.showMessageDialog(null, "Nenhum campo pode esta Vazio", "Multitec ", JOptionPane.ERROR_MESSAGE);
-      tfLogin.setText ("");
-      jfSenha.setText ("");
-
-  }else{
-            if(sql.Logar(login, senha) == true){
-                new Thread(){
-                    public void run(){
-                        for (int i = 0; i<101; i++){
-                            jProgressBar.setValue(i);
-                            try{
-                                Thread.sleep(35);
-                                
-                            }catch(Exception ex){
-                                ex.getMessage();
-                            }
-                        }
-                        menu.setVisible(true);
-                    }
-                    
-                    
-                    
-                        }.start();
-        }else{
-                JOptionPane.showMessageDialog(null,"Usuário ou Senha Invalidos ", "Multitec ", JOptionPane.ERROR_MESSAGE);
-                }
+      
+      String login = tfLogin.getText();
+      String senha = jfSenha.getText();
+        String logar ="admin";
+      
+      if(login!= logar  && senha != logar){
+          JOptionPane.showMessageDialog(null,"Usuário logado com sucesso!!!");
+           Menu principal = new Menu();
+           principal.setVisible(true);
+          
+      }else{
+           JOptionPane.showMessageDialog(null,"Usuário não logado com sucesso!!!");
+      }
                
-        }  
+          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
@@ -269,7 +245,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JProgressBar jProgressBar;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JPasswordField jfSenha;
     private javax.swing.JButton sair;

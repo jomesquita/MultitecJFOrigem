@@ -10,42 +10,42 @@ package Modelo;
  * @author Joelânio
  */
 public class Equipamento {
-  private int Cod;
-  private String Nome;
-  private String Marca;
-  private String Modelo;
+  private int cod;
+  private String nome;
+  private String marca;
+  private String modelo;
   
     public int getCod() {
-        return Cod;
+        return cod;
     }
 
    
     public void setCod(int Cod) {
-        this.Cod = Cod;
+        this.cod = cod;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-        this.Nome = Nome;
+        this.nome = nome;
     }
 
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
     public void setMarca(String marca) {
-        this.Marca = Marca;
+        this.marca = marca;
     }
 
     public String getModelo() {
-        return Modelo;
+        return modelo;
     }
 
     public void setModelo(String modelo) {
-        this.Modelo = Modelo;
+        this.modelo = modelo;
     }
 
   

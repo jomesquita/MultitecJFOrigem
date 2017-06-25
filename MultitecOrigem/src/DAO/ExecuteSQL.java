@@ -1,20 +1,17 @@
 
 package DAO;
 
-import java.sql.Connection;
-
-
+import java.sql.*;
 
 public class ExecuteSQL {
-
     
-   private Connection con;
+    private Connection con;
     
     public ExecuteSQL(Connection con){
         setCon(con);
     }
     
-     public Connection getCon(){
+    public Connection getCon(){
         return con;
     }
     
@@ -22,5 +19,3 @@ public class ExecuteSQL {
         this.con = con;
     }
 }
-    
-
